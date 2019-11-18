@@ -21,3 +21,20 @@ kits.randomHexColor = function () {
     }
     return color.join('');
 }
+
+//在浏览器仓库中添加数据
+function addItem(keyName, content) {
+    localStorage.setItem(keyName, content);
+    if (typeof content === 'object') {
+        localStorage.setItem(keyName, JSON.stringify(content));
+    }
+}
+//在浏览器仓库中获取数据
+function getItem(keyName) {
+    let conten = localStorage.getItem(keyName);
+    if (typeof conten === 'string') {
+        return JSON.parse(conten);
+    }
+    return conten;
+}
+
